@@ -225,3 +225,190 @@ clock();
 // werden soll und jede dieser Zahlen soll dann auf ihre Teilbarkeit durch 3 und 5 geprüft werden
 // und nach den obigen Regeln in der Konsole ausgegeben werden
 
+function FizzBuzz(limit)
+{
+    let answ = "";
+    for(let i = 0; i <= limit; i++)
+    {
+        answ= "";
+        if(i % 3 === 0)
+        {
+            answ += "Fizz";
+            console.log(answ);
+        }
+        if(i % 5 === 0)
+        {
+            answ += "Buzz";
+            
+            console.log(answ);
+        }
+        if(answ === "")
+        {
+            console.log(i);
+        }
+        else
+        {
+            //console.log(answ);
+        }
+    }
+}
+
+FizzBuzz(15);
+
+
+// while-Schleife:
+/*
+    let zähler;
+    Syntax: while(Bedingung)
+    {
+        code_block
+        inkrementieren/dekrementieren 
+    }
+*/
+
+function fizzBuzzWhile(limit)
+{
+    let counter = 0;
+    let answ = "";
+    while (counter <= limit)
+    {
+        answ = "";
+        if(counter % 3 === 0)
+        {
+            answ += "Fizz";
+        }
+        if(counter % 5 === 0)
+        {
+            answ += "Buzz";
+        }
+        if(answ === "")
+        {
+            console.log(counter);
+        }
+        else{
+            console.log(answ);
+        }
+        counter ++; // Ist wichtig, da wir sonst in eine endlosschleife laufen
+    }
+}
+
+// do..while Schleife
+/*
+    Syntax:
+    let zähler;
+    do {
+        code_Block
+        inkrement
+    }
+    while(Bedingung)
+*/
+
+for(let i = 20; i < numberOne; i++)
+{
+    console.log(i);
+}
+
+let counter = 20;
+do {
+    console.log(counter);
+    counter++;
+}while(counter < numberOne);
+
+// break & continue
+for(let i = 0; i < 11; i++)
+{
+    if(i % 2 === 0)
+    {
+        console.log("Iteration wird übersprungen");
+        continue;
+        // Überspringt die derzeitige Iteration des Blockes, aber führt das inkrement/dekrement aus
+    }
+    else if(i === 7) {
+        console.log("Schleife wird beendet");
+        break;
+        // Beendet die derzeitige Schleife vorzeitig
+    }
+    console.log(i);
+}
+
+// Schreibe eine Funktion die das gesamte kleine ein mal eins ausführt
+// Es soll kein Wert zurückgegeben werden, sondern die Berechnungen sollen direkt in der Konsole 
+// angezeigt werden
+
+// Erwarteter Output:
+// 1er Einmaleins:
+// 1 x 1 = 1
+// .... 1 x 10 = 10
+// 2er Einmaleins:
+// 2 x 1 = 2
+// .... 2 x 10 = 20
+
+
+function multiplicationTable() 
+{
+    for(let i = 1; i < 11; i++)
+    {
+        console.log(i + "er Einmaleins");
+        for(let j = 1; j < 11; j++)
+        {
+            console.log(i + "x" + j + "=" + i*j);
+        }
+    }
+}
+
+multiplicationTable();
+
+// Rekursiven Funktionen
+// Funktionen, die sich in ihrem Körper selbst aufrufen
+// Müssen immer eine Bedingung enthalten, damit es keine endlos Schleife wird
+// Können schnell inneffizient werden, da es viele Funktionsaufrufe sind
+
+function faculty(limit)
+{
+    if(limit < 2)
+    {
+        return 1;
+    }
+    else{
+        return limit * faculty(limit -1);
+    }
+}
+
+// Lambda-Funktionen:
+// Alternative zu den anonymen Funktionen
+
+// Anonyme Funktionen sind FUnktionen ohne Identifier
+// Weißt man im normalfall einer Variable zu, damit sie wiederverwandbar sind
+// Einfache anonyme Funktion:
+
+let sum = function(numOne, numTwo) {return numOne + numTwo};
+let ergebnis3 = sum(8,9);
+console.log(typeof(sum)); // -> Funktion
+// Sind identisch zu normalen Funktionen
+
+// Lambdas sind die kompakte Alternative zu den anonymen Funktionen
+// Pfeilfunktionen
+let quadruple = (a) => a*4;
+let square = (a) => a*a;
+
+function vervierfachen (a)
+{
+    return a*4;
+}
+
+function quadrieren(a)
+{
+    return a*a;
+}
+
+// Lambdas werden meistens als Parameter für andere Funktionen benutzt
+// Wenn eine Lambda-Funktion mehrzeilig wird, verliert sie eienige Ihrer Vorteile
+let mehrzeilig = (a, b) =>
+{
+    a*=2;
+    b*=2;
+    return a * b;
+}
+// Wir brauchen dann wieder die geschweiften Klammern und das return Keyword
+
+console.log(typeof(mehrzeilig));
