@@ -408,6 +408,7 @@ let mehrzeilig = (a, b) =>
     a*=2;
     b*=2;
     return a * b;
+
 }
 // Wir brauchen dann wieder die geschweiften Klammern und das return Keyword
 
